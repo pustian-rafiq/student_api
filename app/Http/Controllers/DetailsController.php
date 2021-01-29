@@ -50,8 +50,20 @@ class DetailsController extends Controller
 
     }
 
-    public function detailsUpdate(){
+    public function detailsUpdate(Request $request){
 
+        $id = $request->input("id");
+        $city = $request->input("city");
+        $phn = $request->input("phn");
+
+
+        $sql = "UPDATE `details` set `city`=?, `phn`=? where `id`=?";
+        $result = DB::update($sql,[$city,$phn,$id]);
+        if ($result) {
+            return "Data Updated Successfully";
+        }else{
+            return "Data Not Updated";
+        }
     }
 
 
