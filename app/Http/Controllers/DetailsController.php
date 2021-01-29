@@ -37,7 +37,16 @@ class DetailsController extends Controller
 
 
     }
-    public function detailsDelete(){
+    public function detailsDelete(Request $request){
+
+        $id = $request->input("id");
+        $sql = "DELETE FROM `details` where `id`=?";
+        $result = DB::delete($sql, [$id]);
+        if ($result) {
+            return "Data Deleted Successfully";
+        }else{
+            return "Data Not Deleted";
+        }
 
     }
 
