@@ -20,7 +20,23 @@ class DetailsController extends Controller
         //$data = DB::select($query);
         return $request->header();
     }
+    public function detailCreate(Request $request){
+        $name = $request->input("name");
+        $roll = $request->input("roll");
+        $city = $request->input("city");
+        $phn = $request->input("phn");
+        $class = $request->input("class");
 
+        $sql = "INSERT INTO `details` (`name`, `roll`, `city`, `phn`, `class`) VALUES (?,?,?,?,?)";
+        $result = DB::insert($sql,[$name,$roll,$city,$phn,$class]);
+        if ($result) {
+            return "Data inserted Successfully";
+        }else{
+            return "Data Not insertedgit";
+        }
+
+
+    }
     public function detailsDelete(){
 
     }
@@ -29,7 +45,5 @@ class DetailsController extends Controller
 
     }
 
-    public function detailInsert(){
 
-    }
 }

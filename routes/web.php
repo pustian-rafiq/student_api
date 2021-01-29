@@ -14,6 +14,6 @@
 */
 
 $router->get('/details','DetailsController@DetailsSelect');
-$router->post('/details','DetailsController@DetailsDelete');
-$router->delete('/details','DetailsController@DetailsUpdate');
-$router->put('/details','DetailsController@DetailsInsert');
+$router->post('/details','DetailsController@detailCreate');
+$router->delete('/details','DetailsController@DetailsDelete');
+$router->put('/details','DetailsController@DetailsUpdate');
