@@ -20,3 +20,8 @@ $router->put('/details','DetailsController@DetailsUpdate');
 
 //using query builder
 $router->post('/querybuilder','DetailsController@insertWithBuilder');
+
+
+//using Eloquent ORM--model
+$router->get('/students','StudentController@SelectAll');
+$router->post('/students','StudentController@SelectByID');
