@@ -78,6 +78,27 @@ class DetailsController extends Controller
             return "Data Not Updated";
         }
     }
+    public function insertWithBuilder(Request $request){
+        $data = array();
+        $data['name'] = $request->name;
+        $data['roll'] = $request->roll;
+        $data['city'] = $request->city;
+        $data['phn'] = $request->phn;
+        $data['class'] = $request->class;
+        // $name = $request->input("name");
+        // $roll = $request->input("roll");
+        // $city = $request->input("city");
+        // $phn = $request->input("phn");
+        // $class = $request->input("class");
 
+
+       // $result =  DB::table('details')->insert(['name'=>$name,'roll'=>$roll,'city'=>$city,'phn'=>$phn,'class'=>$class]);
+       $result =  DB::table('details')->insert($data);
+        if ($result) {
+            return "Data inserted Successfully using Query builder";
+        }else{
+            return "Data Not inserted";
+        }
+    }
 
 }
