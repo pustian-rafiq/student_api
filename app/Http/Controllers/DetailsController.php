@@ -16,9 +16,22 @@ class DetailsController extends Controller
     }
 
     public function detailsSelect(Request $request){
+        //using Sql prepared statement
        // $query = "SELECT * FROM details";
         //$data = DB::select($query);
-        return $request->header();
+        //return $request->header();
+
+        // using query builder ---select all rows
+        // $data = DB::table('details')->get();
+        // return $data;
+
+        // using query builder ---select one rows
+        // $data = DB::table('details')->find(2);
+        // return $data->name;
+
+          // using query builder ---select one or two column----using pluck method
+          $data = DB::table('details')->pluck('name','roll');
+          return $data;
     }
     public function detailCreate(Request $request){
         $name = $request->input("name");
@@ -32,7 +45,7 @@ class DetailsController extends Controller
         if ($result) {
             return "Data inserted Successfully";
         }else{
-            return "Data Not insertedgit";
+            return "Data Not inserted";
         }
 
 

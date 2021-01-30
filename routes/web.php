@@ -13,7 +13,7 @@
 |
 */
 
-$router->get('/details','DetailsController@DetailsSelect');
+$router->get('/details','DetailsController@detailsSelect');
 $router->post('/details','DetailsController@detailCreate');
 $router->delete('/details','DetailsController@DetailsDelete');
 $router->put('/details','DetailsController@DetailsUpdate');
